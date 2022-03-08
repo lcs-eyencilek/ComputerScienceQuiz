@@ -8,9 +8,10 @@
 import Foundation
 import SwiftUI
 
-class QuestionProviderVM: ObservableObject {
+@MainActor
+final class QuestionProviderVM: ObservableObject {
     // Record new questions here
-    @Published var questions: [Question] = []
+    @Published private(set) var questions: [Question] = []
     
     // Basic initializer
     init(questions: [Question] = []) {

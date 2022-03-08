@@ -19,7 +19,6 @@
 		49A8F8DC27D5D84300907E87 /* AnsweredQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DB27D5D84300907E87 /* AnsweredQuestions.swift */; };
 		49A8F8DE27D5DBD800907E87 /* QuestionProviderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DD27D5DBD800907E87 /* QuestionProviderVM.swift */; };
 		49A8F8E027D5DBE300907E87 /* TestRecorderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DF27D5DBE300907E87 /* TestRecorderVM.swift */; };
-		49A8F8E627D5DE1000907E87 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8E527D5DE1000907E87 /* APIConstants.swift */; };
 		49A8F8E827D6691700907E87 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8E727D6691700907E87 /* Response.swift */; };
 		49A8F8E927D66B6A00907E87 /* QuestionProviderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DD27D5DBD800907E87 /* QuestionProviderVM.swift */; };
 		49A8F8EA27D66B6D00907E87 /* TestRecorderVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DF27D5DBE300907E87 /* TestRecorderVM.swift */; };
@@ -28,7 +27,8 @@
 		49A8F8ED27D66B7400907E87 /* AnsweredQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DB27D5D84300907E87 /* AnsweredQuestions.swift */; };
 		49A8F8EE27D66B7500907E87 /* DifficultyEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8D727D5D65600907E87 /* DifficultyEnum.swift */; };
 		49A8F8EF27D66B7700907E87 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8D927D5D73F00907E87 /* Test.swift */; };
-		49A8F8F027D66BC500907E87 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8E527D5DE1000907E87 /* APIConstants.swift */; };
+		49DF703A27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */; };
+		49DF703B27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,8 @@
 		49A8F8DB27D5D84300907E87 /* AnsweredQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnsweredQuestions.swift; sourceTree = "<group>"; };
 		49A8F8DD27D5DBD800907E87 /* QuestionProviderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProviderVM.swift; sourceTree = "<group>"; };
 		49A8F8DF27D5DBE300907E87 /* TestRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecorderVM.swift; sourceTree = "<group>"; };
-		49A8F8E527D5DE1000907E87 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		49A8F8E727D6691700907E87 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 		49A8F8E127D5DC2F00907E87 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				49A8F8E527D5DE1000907E87 /* APIConstants.swift */,
+				49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -243,11 +243,11 @@
 				49A8F8E027D5DBE300907E87 /* TestRecorderVM.swift in Sources */,
 				49A8F8D627D5D5F800907E87 /* Question.swift in Sources */,
 				49A8F8DE27D5DBD800907E87 /* QuestionProviderVM.swift in Sources */,
+				49DF703A27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */,
 				49A8F8C627D5D4AB00907E87 /* ContentView.swift in Sources */,
 				49A8F8E827D6691700907E87 /* Response.swift in Sources */,
 				49A8F8DA27D5D73F00907E87 /* Test.swift in Sources */,
 				49A8F8C427D5D4AB00907E87 /* ComputerScienceQuizApp.swift in Sources */,
-				49A8F8E627D5DE1000907E87 /* APIConstants.swift in Sources */,
 				49A8F8DC27D5D84300907E87 /* AnsweredQuestions.swift in Sources */,
 				49A8F8D827D5D65600907E87 /* DifficultyEnum.swift in Sources */,
 			);
@@ -260,10 +260,10 @@
 				49A8F8EB27D66B6F00907E87 /* Question.swift in Sources */,
 				49A8F8EA27D66B6D00907E87 /* TestRecorderVM.swift in Sources */,
 				49A8F8EF27D66B7700907E87 /* Test.swift in Sources */,
+				49DF703B27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */,
 				49A8F8C727D5D4AB00907E87 /* ContentView.swift in Sources */,
 				49A8F8E927D66B6A00907E87 /* QuestionProviderVM.swift in Sources */,
 				49A8F8EC27D66B7100907E87 /* Response.swift in Sources */,
-				49A8F8F027D66BC500907E87 /* APIConstants.swift in Sources */,
 				49A8F8C527D5D4AB00907E87 /* ComputerScienceQuizApp.swift in Sources */,
 				49A8F8ED27D66B7400907E87 /* AnsweredQuestions.swift in Sources */,
 				49A8F8EE27D66B7500907E87 /* DifficultyEnum.swift in Sources */,

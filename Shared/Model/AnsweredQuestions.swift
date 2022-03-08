@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AnsweredQuestion {
+struct AnsweredQuestion: Codable {
     let original: Question
     let userAnswer: String
     let correct: Bool
