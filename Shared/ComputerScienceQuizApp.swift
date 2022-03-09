@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ComputerScienceQuizApp: App {
+    
+    @StateObject var questionProvider = QuestionProviderVM()
+    @StateObject var testRecorder = TestRecorderVM()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView(questionProvider: questionProvider, testRecorder: testRecorder)
+            }
         }
     }
 }

@@ -31,7 +31,6 @@ final class TestRecorderVM: ObservableObject {
             self.tests = try JSONDecoder().decode([Test].self, from: data)
 
         } catch {
-            // What went wrong?
             print(error.localizedDescription)
             print("Could not load data from file, initializing with tasks provided to initializer.")
             self.tests = tests

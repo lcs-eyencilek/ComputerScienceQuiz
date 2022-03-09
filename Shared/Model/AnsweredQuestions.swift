@@ -8,8 +8,10 @@
 import Foundation
 
 struct AnsweredQuestion: Codable {
+    // MARK: Properties
     let original: Question
     let userAnswer: String
     let correct: Bool
+    
 }
 

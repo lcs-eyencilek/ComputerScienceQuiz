@@ -9,18 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var questionProvider = QuestionProviderVM()
+    // Observed View Models
+    @ObservedObject var questionProvider: QuestionProviderVM
+    @ObservedObject var testRecorder: TestRecorderVM
+    
+    @State var showingNewTest: Bool = false
     
     var body: some View {
         ZStack {
-            if questionProvider.questions.count > 0 {
-                Text(questionProvider.questions.first!.question)
-                Text(questionProvider.questions.first!.correct_answer)
+            VStack {
+                List {
+                    ForEach(testRecorder.tests) { test in
+                        
+                    }
+                }
+            }
+            .navigationTitle("Last 50 Tests")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("New Test") {
+                        showingNewTest.toggle()
+                    }
+                }
             }
         }.task {
             await questionProvider.getQuestions()
             print(questionProvider.questions)
             
+        }
+        .sheet(isPresented: $showingNewTest) {
+            NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, togglePopUp: $showingNewTest)
         }
         
     }
@@ -28,6 +46,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(questionProvider: QuestionProviderVM(), testRecorder: TestRecorderVM())
     }
 }

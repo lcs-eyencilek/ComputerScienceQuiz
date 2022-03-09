@@ -13,7 +13,7 @@ enum TestCodingKeys: CodingKey {
     case completionDate
 }
 
-class Test: Codable {
+class Test: Codable, Identifiable {
     // MARK: Properties
     let testQuestions: [AnsweredQuestion]
     let score: Int
