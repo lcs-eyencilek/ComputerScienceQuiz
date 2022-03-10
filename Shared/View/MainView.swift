@@ -1,14 +1,13 @@
 //
-//  ContentView.swift
-//  Shared
+//  MainView.swift
+//  ComputerScienceQuiz
 //
-//  Created by Efe Yencilek on 2022-03-07.
+//  Created by Efe Yencilek on 2022-03-10.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct MainView: View {
     // Observed View Models
     @ObservedObject var questionProvider: QuestionProviderVM
     @ObservedObject var testRecorder: TestRecorderVM
@@ -20,7 +19,7 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(testRecorder.tests) { test in
-                        
+                        TestCell(test: test)
                     }
                 }
             }
@@ -32,20 +31,16 @@ struct ContentView: View {
                     }
                 }
             }
-        }.task {
-            await questionProvider.getQuestions()
-            print(questionProvider.questions)
-            
         }
         .sheet(isPresented: $showingNewTest) {
-            NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, togglePopUp: $showingNewTest)
+            NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, isPresenting: $showingNewTest)
         }
         
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(questionProvider: QuestionProviderVM(), testRecorder: TestRecorderVM())
+        MainView(questionProvider: QuestionProviderVM(), testRecorder: TestRecorderVM())
     }
 }

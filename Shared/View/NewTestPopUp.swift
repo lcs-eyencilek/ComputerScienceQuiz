@@ -14,15 +14,25 @@ struct NewTestPopUp: View {
     @ObservedObject var testRecorder: TestRecorderVM
     
     // Toggle View Appearance
-    @Binding var togglePopUp: Bool
+    @Binding var isPresenting: Bool
     
     var body: some View {
-        Text("Something")
+        VStack {
+            Text("Hello, World!")
+        }
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Back") {
+                    isPresenting.toggle()
+                }
+            }
+        }
+        .interactiveDismissDisabled()
     }
 }
 
 struct NewTestPopUp_Previews: PreviewProvider {
     static var previews: some View {
-        NewTestPopUp(questionProvider: QuestionProviderVM(), testRecorder: TestRecorderVM(), togglePopUp: Binding.constant(true))
+        NewTestPopUp(questionProvider: QuestionProviderVM(), testRecorder: TestRecorderVM(), isPresenting: Binding.constant(true))
     }
 }

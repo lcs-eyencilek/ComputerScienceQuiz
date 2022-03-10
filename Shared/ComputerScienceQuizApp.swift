@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct ComputerScienceQuizApp: App {
     
-    @StateObject var questionProvider = QuestionProviderVM()
-    @StateObject var testRecorder = TestRecorderVM()
+    @StateObject private var questionProvider = QuestionProviderVM()
+    @StateObject private var testRecorder = TestRecorderVM()
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(questionProvider: questionProvider, testRecorder: testRecorder)
+                MainView(questionProvider: questionProvider, testRecorder: testRecorder)
             }
         }
     }

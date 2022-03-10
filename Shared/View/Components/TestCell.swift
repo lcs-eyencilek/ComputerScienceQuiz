@@ -10,11 +10,18 @@ import SwiftUI
 struct TestCell: View {
     
     @State var test: Test
+    @State var presentingQuestions: Bool = false
     
     var body: some View {
         VStack {
             Text(String(test.score))
             Text(test.completionDate.description)
+        }
+        .onTapGesture(count: 2) {
+            presentingQuestions.toggle()
+        }
+        .sheet(isPresented: $presentingQuestions) {
+            QuestionsList(isPresenting: $presentingQuestions, test: test)
         }
     }
 }
