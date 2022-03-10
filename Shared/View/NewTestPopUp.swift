@@ -41,7 +41,7 @@ struct NewTestPopUp: View {
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Back") {
+                Button("Abondon Test") {
                     isPresenting.toggle()
                 }
             }
@@ -69,6 +69,7 @@ struct NewTestPopUp: View {
                         questionIndex += 1
                     }
                 }
+                .disabled(questionAnswer == "")
             }
         }
         .interactiveDismissDisabled()
