@@ -33,7 +33,9 @@ struct MainView: View {
             }
         }
         .sheet(isPresented: $showingNewTest) {
-            NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, isPresenting: $showingNewTest)
+            NavigationView {
+                NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, isPresenting: $showingNewTest)
+            }
         }
         
     }

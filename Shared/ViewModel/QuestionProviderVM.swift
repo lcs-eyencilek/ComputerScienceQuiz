@@ -10,14 +10,16 @@ import SwiftUI
 
 @MainActor
 final class QuestionProviderVM: ObservableObject {
+    // MARK: Properties
     // Record new questions here
     @Published private(set) var questions: [Question] = []
     
-    // Basic initializer
+    // MARK: Default Initializer
     init(questions: [Question] = []) {
         self.questions = questions
     }
     
+    // MARK: Fetching Data From API
     // Fetch questions to populate "questions"
     @available(iOS 15.0.0, *)
     func getQuestions() async {
@@ -39,5 +41,15 @@ final class QuestionProviderVM: ObservableObject {
         // Decode the json data in the formate of an array of quotes, the reason why we conformed the quote struct to decodable is to be able to use it here as a decoding format
         let decoded = try JSONDecoder().decode(Response.self, from: data)
         return decoded.results
+    }
+    
+    // MARK: Test Progression Methods
+    func returnAllAnswers(at index: Int) -> [String] {
+        // You might want to write this code in a do catch block in case the index is out of range
+        let question = self.questions[index]
+        var answers = question.incorrect_answers
+        answers.append(question.correct_answer)
+        answers.shuffle()
+        return answers
     }
 }

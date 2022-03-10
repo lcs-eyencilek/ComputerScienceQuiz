@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4989B3E627DA197000EE2B00 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989B3E527DA197000EE2B00 /* AnswerButton.swift */; };
+		4989B3E727DA197000EE2B00 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4989B3E527DA197000EE2B00 /* AnswerButton.swift */; };
 		4997856A27D878D5003ACEEA /* NewTestPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997856927D878D5003ACEEA /* NewTestPopUp.swift */; };
 		4997856B27D878D5003ACEEA /* NewTestPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997856927D878D5003ACEEA /* NewTestPopUp.swift */; };
 		4997856E27D87BE3003ACEEA /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997856D27D87BE3003ACEEA /* TestCell.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4989B3E527DA197000EE2B00 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		4997856927D878D5003ACEEA /* NewTestPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTestPopUp.swift; sourceTree = "<group>"; };
 		4997856D27D87BE3003ACEEA /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		49A8718527D9D6F50067CA3F /* QuestionsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsList.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 			children = (
 				4997856D27D87BE3003ACEEA /* TestCell.swift */,
 				49A8718B27D9E2B30067CA3F /* QuestionCell.swift */,
+				4989B3E527DA197000EE2B00 /* AnswerButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -269,6 +273,7 @@
 				4997856E27D87BE3003ACEEA /* TestCell.swift in Sources */,
 				49A8718C27D9E2B30067CA3F /* QuestionCell.swift in Sources */,
 				49A8F8D627D5D5F800907E87 /* Question.swift in Sources */,
+				4989B3E627DA197000EE2B00 /* AnswerButton.swift in Sources */,
 				49A8F8DE27D5DBD800907E87 /* QuestionProviderVM.swift in Sources */,
 				49DF703A27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */,
 				4997856A27D878D5003ACEEA /* NewTestPopUp.swift in Sources */,
@@ -290,6 +295,7 @@
 				4997856F27D87BE3003ACEEA /* TestCell.swift in Sources */,
 				49A8718D27D9E2B30067CA3F /* QuestionCell.swift in Sources */,
 				49A8F8EA27D66B6D00907E87 /* TestRecorderVM.swift in Sources */,
+				4989B3E727DA197000EE2B00 /* AnswerButton.swift in Sources */,
 				49A8F8EF27D66B7700907E87 /* Test.swift in Sources */,
 				49DF703B27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */,
 				4997856B27D878D5003ACEEA /* NewTestPopUp.swift in Sources */,
