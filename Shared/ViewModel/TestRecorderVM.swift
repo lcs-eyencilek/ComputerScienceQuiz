@@ -59,7 +59,7 @@ final class TestRecorderVM: ObservableObject {
             // See the datat that was written
             print("Saved data to documents directory successfully.")
             print("===")
-            print(String(data: data, encoding: .utf8)!)
+            //print(String(data: data, encoding: .utf8)!)
             
         } catch {
             

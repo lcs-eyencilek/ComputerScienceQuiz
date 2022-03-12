@@ -32,7 +32,7 @@ struct NewTestPopUp: View {
             } else {
                 if questionProvider.questions.isEmpty {
                     // Handle when there's no questions retrieved
-                    Text("No questions retrieved, click abondon or try again please.")
+                    Text("No questions retrieved, click abandon or try again please.")
                     /*
                     Button("Try again") {
                         reload()
@@ -47,14 +47,18 @@ struct NewTestPopUp: View {
                             AnswerButton(response: $questionAnswer, displayText: answer)
                         }
                     } else {
-                        Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect")
+                        Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect...")
+                        if (questionAnswer != current.correct_answer) {
+                            Text("Your answer: \(questionAnswer)")
+                            Text("Correct Answer: \(current.correct_answer)")
+                        }
                     }
                 }
             }
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Abondon Test") {
+                Button("Abandon Test") {
                     // Reset Questions
                     questionProvider.resetQuestions()
                     // Toggle View
@@ -79,6 +83,9 @@ struct NewTestPopUp: View {
                     
                     if questionIndex + 1 == questionProvider.questions.count {
                         
+                        if testRecorder.tests.count == 50 {
+                            testRecorder.tests.remove(at: 0)
+                        }
                         // Here you'll save the quiz and toggle isPresenting
                         testRecorder.tests.append(Test(questions: recordedAnswers))
                         // Reset the questions
@@ -100,8 +107,6 @@ struct NewTestPopUp: View {
         .task {
             await questionProvider.getQuestions()
             progressionComplete.toggle()
-            // Debug
-            print(questionProvider.questions)
         }
     }
     

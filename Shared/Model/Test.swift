@@ -26,10 +26,12 @@ class Test: Codable, Identifiable, ObservableObject {
         
         // Determine the score
         var correctAnswerCount = 0
-        for i in 0..<questions.count where questions[i].correct {
-            correctAnswerCount += 1
+        for i in 0..<questions.count {
+            if questions[i].correct {
+                correctAnswerCount += 1
+            }
         }
-        self.score = (correctAnswerCount/questions.count) * 100
+        self.score = correctAnswerCount * 10
         
         // Determine the date
         self.completionDate = Date.now

@@ -13,9 +13,13 @@ struct TestCell: View {
     @State var presentingQuestions: Bool = false
     
     var body: some View {
-        VStack {
-            Text(String(test.score))
-            Text(test.completionDate.description)
+        VStack(alignment: .leading, spacing: 3) {
+            Text("Completed on \(test.completionDate.formatted(date: .abbreviated, time: .shortened))")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            Text("Score: \(test.score)")
+                .font(.title2)
+                .foregroundColor(.primary)
         }
         .onTapGesture(count: 2) {
             presentingQuestions.toggle()
