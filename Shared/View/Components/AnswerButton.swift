@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AnswerButton: View {
+    // Binding response
+    @Binding var response: String
+    
+    var displayText: String
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct AnswerButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AnswerButton()
+        Button(displayText) {
+            response = displayText
+        }
     }
 }

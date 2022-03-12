@@ -43,7 +43,7 @@ final class QuestionProviderVM: ObservableObject {
         return decoded.results
     }
     
-    // MARK: Test Progression Methods
+    // MARK: Class Methods
     func returnAllAnswers(at index: Int) -> [String] {
         // You might want to write this code in a do catch block in case the index is out of range
         let question = self.questions[index]
@@ -51,5 +51,9 @@ final class QuestionProviderVM: ObservableObject {
         answers.append(question.correct_answer)
         answers.shuffle()
         return answers
+    }
+    
+    func resetQuestions() {
+        self.questions = []
     }
 }

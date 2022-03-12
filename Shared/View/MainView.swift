@@ -18,7 +18,7 @@ struct MainView: View {
         ZStack {
             VStack {
                 List {
-                    ForEach(testRecorder.tests) { test in
+                    ForEach(testRecorder.tests.reversed()) { test in
                         TestCell(test: test)
                     }
                 }

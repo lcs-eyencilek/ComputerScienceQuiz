@@ -12,7 +12,14 @@ struct QuestionCell: View {
     var question: AnsweredQuestion
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text(question.original.question)
+            Text(question.correct ? "Correct" : "Incorrect")
+            Text(question.userAnswer)
+            if (!question.correct) {
+                Text(question.original.correct_answer)
+            }
+        }
     }
 }
 

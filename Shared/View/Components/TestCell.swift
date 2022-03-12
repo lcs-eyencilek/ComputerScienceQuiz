@@ -21,7 +21,9 @@ struct TestCell: View {
             presentingQuestions.toggle()
         }
         .sheet(isPresented: $presentingQuestions) {
-            QuestionsList(isPresenting: $presentingQuestions, test: test)
+            NavigationView {
+                QuestionsList(isPresenting: $presentingQuestions, test: test)
+            }
         }
     }
 }

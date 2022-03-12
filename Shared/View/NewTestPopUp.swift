@@ -22,26 +22,42 @@ struct NewTestPopUp: View {
     // View Modifiers for Test Progression
     @State var questionIndex: Int = 0
     @State var questionAnswer: String = ""
+    @State var progressionComplete: Bool = false
     
     var body: some View {
         
         VStack {
-            if questionProvider.questions.isEmpty {
+            if !progressionComplete {
                 Text("Loading View...")
             } else {
-                // Temporary constants storing data displayed
-                let current = questionProvider.questions[questionIndex]
-                let answers = questionProvider.returnAllAnswers(at: questionIndex)
-                Text(current.question)
-                ForEach(answers, id: \.self) { answer in
-                    // You'll pass in questionAnswer and question values
-                    AnswerButton()
+                if questionProvider.questions.isEmpty {
+                    // Handle when there's no questions retrieved
+                    Text("No questions retrieved, click abondon or try again please.")
+                    /*
+                    Button("Try again") {
+                        reload()
+                    }
+                     */
+                } else {
+                    let current = questionProvider.questions[questionIndex]
+                    if questionAnswer.isEmpty {
+                        let answers = questionProvider.returnAllAnswers(at: questionIndex)
+                        Text(current.question)
+                        ForEach(answers, id: \.self) { answer in
+                            AnswerButton(response: $questionAnswer, displayText: answer)
+                        }
+                    } else {
+                        Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect")
+                    }
                 }
             }
         }
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Abondon Test") {
+                    // Reset Questions
+                    questionProvider.resetQuestions()
+                    // Toggle View
                     isPresenting.toggle()
                 }
             }
@@ -58,10 +74,18 @@ struct NewTestPopUp: View {
                     // Save it in the array
                     recordedAnswers.append(newAnswer)
                     
+                    // Reset the questionAnswer
+                    questionAnswer = ""
+                    
                     if questionIndex + 1 == questionProvider.questions.count {
                         
                         // Here you'll save the quiz and toggle isPresenting
                         testRecorder.tests.append(Test(questions: recordedAnswers))
+                        // Reset the questions
+                        questionProvider.resetQuestions()
+                        // Permanently save the list fo tasks
+                        testRecorder.persistTasks()
+                        // Toggle View
                         isPresenting.toggle()
                         
                     } else {
@@ -75,10 +99,21 @@ struct NewTestPopUp: View {
         .interactiveDismissDisabled()
         .task {
             await questionProvider.getQuestions()
+            progressionComplete.toggle()
             // Debug
             print(questionProvider.questions)
         }
     }
+    
+    /*
+    // Reload view
+    func reload() async {
+        questionProvider.resetQuestions()
+        progressionComplete.toggle()
+        questionProvider.getQuestions()
+        progressionComplete.toggle()
+    }
+     */
 }
 
 struct NewTestPopUp_Previews: PreviewProvider {
