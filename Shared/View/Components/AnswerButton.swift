@@ -14,8 +14,22 @@ struct AnswerButton: View {
     var displayText: String
     
     var body: some View {
-        Button(displayText) {
+        Button {
             response = displayText
+        } label: {
+            HStack {
+                Spacer()
+                
+                Text(displayText)
+                    .foregroundColor(.white)
+                    .padding()
+                    .font(.headline)
+                
+                Spacer()
+            }
+            .border(.indigo)
+            .cornerRadius(5)
         }
+        
     }
 }

@@ -15,20 +15,18 @@ struct MainView: View {
     @State var showingNewTest: Bool = false
     
     var body: some View {
-        ZStack {
-            VStack {
-                List {
-                    ForEach(testRecorder.tests.reversed()) { test in
-                        TestCell(test: test)
-                    }
+        VStack {
+            List {
+                ForEach(testRecorder.tests.reversed()) { test in
+                    TestCell(test: test)
                 }
             }
-            .navigationTitle("Last 50 Tests")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button("New Test") {
-                        showingNewTest.toggle()
-                    }
+        }
+        .navigationTitle("Last 50 Tests")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("New Test") {
+                    showingNewTest.toggle()
                 }
             }
         }
@@ -37,7 +35,6 @@ struct MainView: View {
                 NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, isPresenting: $showingNewTest)
             }
         }
-        
     }
 }
 

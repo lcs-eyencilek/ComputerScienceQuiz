@@ -26,99 +26,104 @@ struct NewTestPopUp: View {
     
     var body: some View {
         
-        VStack {
-            if !progressionComplete {
-                Text("Loading View...")
-            } else {
-                if questionProvider.questions.isEmpty {
-                    // Handle when there's no questions retrieved
-                    Text("No questions retrieved, click abandon or try again please.")
-                    /*
-                    Button("Try again") {
-                        reload()
-                    }
-                     */
-                } else {
-                    let current = questionProvider.questions[questionIndex]
-                    if questionAnswer.isEmpty {
-                        let answers = questionProvider.returnAllAnswers(at: questionIndex)
-                        Text(current.question)
-                        ForEach(answers, id: \.self) { answer in
-                            AnswerButton(response: $questionAnswer, displayText: answer)
-                        }
-                    } else {
-                        Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect...")
-                        if (questionAnswer != current.correct_answer) {
-                            Text("Your answer: \(questionAnswer)")
-                            Text("Correct Answer: \(current.correct_answer)")
-                        }
-                    }
-                }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Abandon Test") {
-                    // Reset Questions
-                    questionProvider.resetQuestions()
-                    // Toggle View
-                    isPresenting.toggle()
-                }
-            }
+        HStack {
             
-            ToolbarItem(placement: .confirmationAction) {
-                Button(questionIndex + 1 == questionProvider.questions.count ? "Complete" : "Next") {
-                    
-                    // Create the new answer instance
-                    let newAnswer = AnsweredQuestion(
-                        original: questionProvider.questions[questionIndex],
-                        userAnswer: questionAnswer,
-                        correct: questionProvider.questions[questionIndex].correct_answer == questionAnswer)
-                    
-                    // Save it in the array
-                    recordedAnswers.append(newAnswer)
-                    
-                    // Reset the questionAnswer
-                    questionAnswer = ""
-                    
-                    if questionIndex + 1 == questionProvider.questions.count {
-                        
-                        if testRecorder.tests.count == 50 {
-                            testRecorder.tests.remove(at: 0)
+               Spacer()
+            
+            VStack {
+                
+                Spacer()
+                
+                if !progressionComplete {
+                    Text("Loading View...")
+                } else {
+                    if questionProvider.questions.isEmpty {
+                        // Handle when there's no questions retrieved
+                        Text("No questions retrieved, click abandon or try again please.")
+                    } else {
+                        let current = questionProvider.questions[questionIndex]
+                        if questionAnswer.isEmpty {
+                            let answers = questionProvider.returnAllAnswers(at: questionIndex)
+                            Text(current.question)
+                                .foregroundColor(.white)
+                                .font(.title2)
+                                .padding(20)
+                            ForEach(answers, id: \.self) { answer in
+                                AnswerButton(response: $questionAnswer, displayText: answer)
+                            }
+                        } else {
+                            Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect...")
+                            if (questionAnswer != current.correct_answer) {
+                                Text("Your answer: \(questionAnswer)")
+                                Text("Correct Answer: \(current.correct_answer)")
+                            }
                         }
-                        // Here you'll save the quiz and toggle isPresenting
-                        testRecorder.tests.append(Test(questions: recordedAnswers))
-                        // Reset the questions
+                    }
+                }
+                
+                Spacer()
+                
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Abandon Test") {
+                        // Reset Questions
                         questionProvider.resetQuestions()
-                        // Permanently save the list fo tasks
-                        testRecorder.persistTasks()
                         // Toggle View
                         isPresenting.toggle()
-                        
-                    } else {
-                        // Increase the index
-                        questionIndex += 1
                     }
                 }
-                .disabled(questionAnswer == "")
+                
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(questionIndex + 1 == questionProvider.questions.count ? "Complete" : "Next") {
+                        
+                        // Create the new answer instance
+                        let newAnswer = AnsweredQuestion(
+                            original: questionProvider.questions[questionIndex],
+                            userAnswer: questionAnswer,
+                            correct: questionProvider.questions[questionIndex].correct_answer == questionAnswer)
+                        
+                        // Save it in the array
+                        recordedAnswers.append(newAnswer)
+                        
+                        // Reset the questionAnswer
+                        questionAnswer = ""
+                        
+                        if questionIndex + 1 == questionProvider.questions.count {
+                            
+                            if testRecorder.tests.count == 50 {
+                                testRecorder.tests.remove(at: 0)
+                            }
+                            // Here you'll save the quiz and toggle isPresenting
+                            testRecorder.tests.append(Test(questions: recordedAnswers))
+                            // Reset the questions
+                            questionProvider.resetQuestions()
+                            // Permanently save the list fo tasks
+                            testRecorder.persistTasks()
+                            // Toggle View
+                            isPresenting.toggle()
+                            
+                        } else {
+                            // Increase the index
+                            questionIndex += 1
+                        }
+                    }
+                    .disabled(questionAnswer == "")
+                }
+                
             }
+            .task {
+                await questionProvider.getQuestions()
+                progressionComplete.toggle()
+            }
+            
+            Spacer()
+            
         }
+        .background(.purple)
         .interactiveDismissDisabled()
-        .task {
-            await questionProvider.getQuestions()
-            progressionComplete.toggle()
-        }
+        .edgesIgnoringSafeArea(.all)
     }
-    
-    /*
-    // Reload view
-    func reload() async {
-        questionProvider.resetQuestions()
-        progressionComplete.toggle()
-        questionProvider.getQuestions()
-        progressionComplete.toggle()
-    }
-     */
 }
 
 struct NewTestPopUp_Previews: PreviewProvider {
