@@ -11,6 +11,8 @@ struct AnswerButton: View {
     // Binding response
     @Binding var response: String
     
+    let color: Color?
+    
     var displayText: String
     
     var body: some View {
@@ -27,7 +29,7 @@ struct AnswerButton: View {
                 
                 Spacer()
             }
-            .border(.indigo)
+            .background((color != nil) ? color : .indigo)
             .cornerRadius(5)
         }
         

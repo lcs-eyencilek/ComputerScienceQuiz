@@ -42,21 +42,17 @@ struct NewTestPopUp: View {
                         Text("No questions retrieved, click abandon or try again please.")
                     } else {
                         let current = questionProvider.questions[questionIndex]
+                        let answers = questionProvider.returnAllAnswers(at: questionIndex)
+                        Text(current.question)
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .padding(20)
                         if questionAnswer.isEmpty {
-                            let answers = questionProvider.returnAllAnswers(at: questionIndex)
-                            Text(current.question)
-                                .foregroundColor(.white)
-                                .font(.title2)
-                                .padding(20)
                             ForEach(answers, id: \.self) { answer in
-                                AnswerButton(response: $questionAnswer, displayText: answer)
+                                AnswerButton(response: $questionAnswer, color: nil, displayText: answer)
                             }
                         } else {
-                            Text(questionAnswer == current.correct_answer ? "Correct!" : "Incorrect...")
-                            if (questionAnswer != current.correct_answer) {
-                                Text("Your answer: \(questionAnswer)")
-                                Text("Correct Answer: \(current.correct_answer)")
-                            }
+                            // give a color value to AnswerButtons
                         }
                     }
                 }
