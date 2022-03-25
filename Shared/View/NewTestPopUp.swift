@@ -9,6 +9,8 @@ import SwiftUI
 
 struct NewTestPopUp: View {
     
+    //MARK: Properties
+    
     // Store recorded answers
     @State var recordedAnswers: [AnsweredQuestion] = []
     
@@ -24,6 +26,7 @@ struct NewTestPopUp: View {
     @State var questionAnswer: String = ""
     @State var progressionComplete: Bool = false
     
+    //MARK: Body View
     var body: some View {
         
         HStack {
@@ -39,20 +42,56 @@ struct NewTestPopUp: View {
                 } else {
                     if questionProvider.questions.isEmpty {
                         // Handle when there's no questions retrieved
-                        Text("No questions retrieved, click abandon or try again please.")
+                        //Image(systemName: "person.fill.questionmark")
+                        //   .foregroundColor(.white)
+                        Text("No questions retrieved, click abandon and try again later.")
+                            .font(.title2)
+                            .foregroundColor(.white)
                     } else {
                         let current = questionProvider.questions[questionIndex]
                         let answers = questionProvider.returnAllAnswers(at: questionIndex)
-                        Text(current.question)
-                            .foregroundColor(.white)
-                            .font(.title2)
-                            .padding(20)
                         if questionAnswer.isEmpty {
-                            ForEach(answers, id: \.self) { answer in
-                                AnswerButton(response: $questionAnswer, color: nil, displayText: answer)
+                            VStack {
+                                Text(current.question)
+                                    .foregroundColor(.white)
+                                    .font(.title2)
+                                    .padding(20)
+                                ForEach(answers, id: \.self) { answer in
+                                    AnswerButton(response: $questionAnswer, color: nil, displayText: answer)
+                                }
                             }
                         } else {
-                            // give a color value to AnswerButtons
+                            VStack(alignment: .center) {
+                                if questionAnswer == current.correct_answer {
+                                    // Put an image for correct response
+                                    Text("Correct!")
+                                        .foregroundColor(.white)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                    AnswerButton(response: $questionAnswer, color: .green, displayText: questionAnswer)
+                                } else {
+                                    // Put an image for wrong response
+                                    Text("Maybe next time...")
+                                        .foregroundColor(.white)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                    VStack {
+                                        Text("Your answer: ")
+                                            .foregroundColor(.white)
+                                            .font(.body)
+                                        AnswerButton(response: $questionAnswer, color: .red, displayText: questionAnswer)
+                                    }
+                                    .padding()
+                                    
+                                    VStack {
+                                        Text("Correct answer: \(current.correct_answer)")
+                                            .foregroundColor(.white)
+                                            .font(.body)
+                                        AnswerButton(response: $questionAnswer, color: .green, displayText: current.correct_answer)
+                                    }
+                                    .padding()
+                                }
+                            }
                         }
                     }
                 }
@@ -87,7 +126,7 @@ struct NewTestPopUp: View {
                         
                         if questionIndex + 1 == questionProvider.questions.count {
                             
-                            if testRecorder.tests.count == 50 {
+                            if testRecorder.tests.count == 25 {
                                 testRecorder.tests.remove(at: 0)
                             }
                             // Here you'll save the quiz and toggle isPresenting
@@ -116,7 +155,10 @@ struct NewTestPopUp: View {
             Spacer()
             
         }
-        .background(.purple)
+        .background(
+            .purple
+            //Image("")
+        )
         .interactiveDismissDisabled()
         .edgesIgnoringSafeArea(.all)
     }

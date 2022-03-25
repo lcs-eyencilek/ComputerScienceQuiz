@@ -26,12 +26,13 @@ struct AnswerButton: View {
                     .foregroundColor(.white)
                     .padding()
                     .font(.headline)
+                    .opacity(0.85)
                 
                 Spacer()
             }
             .background((color != nil) ? color : .indigo)
             .cornerRadius(5)
-        }
+        }.disabled(color != nil)
         
     }
 }
