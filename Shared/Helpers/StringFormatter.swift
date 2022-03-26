@@ -7,9 +7,10 @@
 
 import Foundation
 
-// Constant library of replacements
+// Constant dictionary of replacements
 let replacements = [
-    ["&#039;" : "'"]
+    "&#039;" : "\u{0027}",
+    "&quot;" : "\u{0022}"
 ]
 
 extension String {
@@ -17,7 +18,10 @@ extension String {
         var displaying = self
         
         for replacement in replacements {
-            // Replace for each value in the library
+            // Replace for each value in the dictionary
+            if displaying.contains(replacement.key) {
+                displaying = displaying.replacingOccurrences(of: replacement.key, with: replacement.value)
+            }
         }
         
         return displaying

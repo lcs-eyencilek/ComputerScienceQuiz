@@ -22,7 +22,7 @@ struct AnswerButton: View {
             HStack {
                 Spacer()
                 
-                Text(displayText)
+                Text(displayText.formatKeyCodes())
                     .foregroundColor(.white)
                     .padding()
                     .font(.headline)

@@ -52,7 +52,7 @@ struct NewTestPopUp: View {
                         let answers = questionProvider.returnAllAnswers(at: questionIndex)
                         if questionAnswer.isEmpty {
                             VStack {
-                                Text(current.question)
+                                Text(current.question.formatKeyCodes())
                                     .foregroundColor(.white)
                                     .font(.title2)
                                     .padding(20)
@@ -107,6 +107,7 @@ struct NewTestPopUp: View {
                         // Toggle View
                         isPresenting.toggle()
                     }
+                    .disabled(questionIndex + 1 == questionProvider.questions.count && questionAnswer != "")
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
@@ -156,8 +157,7 @@ struct NewTestPopUp: View {
             
         }
         .background(
-            .purple
-            //Image("")
+            Image("quiz_bg")
         )
         .interactiveDismissDisabled()
         .edgesIgnoringSafeArea(.all)

@@ -13,11 +13,11 @@ struct QuestionCell: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(question.original.question)
+            Text(question.original.question.formatKeyCodes())
             Text(question.correct ? "Correct" : "Incorrect")
-            Text(question.userAnswer)
+            Text(question.userAnswer.formatKeyCodes())
             if (!question.correct) {
-                Text(question.original.correct_answer)
+                Text(question.original.correct_answer.formatKeyCodes())
             }
         }
     }

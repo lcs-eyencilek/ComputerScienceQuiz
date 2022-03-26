@@ -22,7 +22,7 @@ struct MainView: View {
                 }
             }
         }
-        .navigationTitle("Last 50 Tests")
+        .navigationTitle("Last 25 Tests")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("New Test") {
