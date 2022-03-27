@@ -38,13 +38,19 @@ struct NewTestPopUp: View {
                 Spacer()
                 
                 if !progressionComplete {
-                    Text("Loading View...")
+                    ProgressView("Loading Content")
+                        .scaledToFill()
+                        .tint(.white)
+                        .foregroundColor(.white)
                 } else {
                     if questionProvider.questions.isEmpty {
                         // Handle when there's no questions retrieved
-                        //Image(systemName: "person.fill.questionmark")
-                        //   .foregroundColor(.white)
-                        Text("No questions retrieved, click abandon and try again later.")
+                        Image(systemName: "person.fill.questionmark")
+                            .resizable()
+                            .frame(width: 135, height: 120, alignment: .center)
+                            .scaledToFit()
+                            .foregroundColor(.white)
+                        Text("No questions retrieved, check your connection and try again later.")
                             .font(.title2)
                             .foregroundColor(.white)
                     } else {
@@ -64,6 +70,11 @@ struct NewTestPopUp: View {
                             VStack(alignment: .center) {
                                 if questionAnswer == current.correct_answer {
                                     // Put an image for correct response
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .resizable()
+                                        .frame(width: 60, height: 60, alignment: .center)
+                                        .scaledToFit()
+                                        .foregroundColor(.green)
                                     Text("Correct!")
                                         .foregroundColor(.white)
                                         .font(.body)
@@ -71,6 +82,11 @@ struct NewTestPopUp: View {
                                     AnswerButton(response: $questionAnswer, color: .green, displayText: questionAnswer)
                                 } else {
                                     // Put an image for wrong response
+                                    Image(systemName: "xmark.circle.fill")
+                                        .resizable()
+                                        .frame(width: 60, height: 60, alignment: .center)
+                                        .scaledToFit()
+                                        .foregroundColor(.red)
                                     Text("Maybe next time...")
                                         .foregroundColor(.white)
                                         .font(.body)
@@ -84,7 +100,7 @@ struct NewTestPopUp: View {
                                     .padding()
                                     
                                     VStack {
-                                        Text("Correct answer: \(current.correct_answer)")
+                                        Text("Correct answer: ")
                                             .foregroundColor(.white)
                                             .font(.body)
                                         AnswerButton(response: $questionAnswer, color: .green, displayText: current.correct_answer)

@@ -12,14 +12,22 @@ struct QuestionCell: View {
     var question: AnsweredQuestion
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(question.original.question.formatKeyCodes())
-            Text(question.correct ? "Correct" : "Incorrect")
-            Text(question.userAnswer.formatKeyCodes())
-            if (!question.correct) {
+        HStack {
+            Spacer()
+            
+            VStack(alignment: .leading) {
+                
+                Spacer()
+                
+                Text(question.original.question.formatKeyCodes())
                 Text(question.original.correct_answer.formatKeyCodes())
+                
+                Spacer()
             }
+            
+            Spacer()
         }
+        .background(question.correct ? .green : .red)
     }
 }
 
