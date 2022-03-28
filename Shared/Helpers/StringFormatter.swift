@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // Constant dictionary of replacements
 let replacements = [
@@ -27,3 +28,6 @@ extension String {
         return displaying
     }
 }
+
+let darkPurple = Color(hex: "702963")
+

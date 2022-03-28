@@ -20,3 +20,10 @@ let savedTestsLabel = "savedTests"
 enum APIConstants {
     static let apiUrl = "https://opentdb.com/api.php?amount=10&category=18"
 }
+
+var formatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .long
+    formatter.timeStyle = .short
+    return formatter
+}()

@@ -15,16 +15,18 @@ struct MainView: View {
     @State var showingNewTest: Bool = false
     
     var body: some View {
-        VStack {
-            
-            List {
-                ForEach(testRecorder.tests.reversed()) { test in
-                    TestCell(test: test)
+        ZStack {
+            //Color.purple.edgesIgnoringSafeArea(.all)
+            VStack {
+                
+                List {
+                    ForEach(testRecorder.tests.reversed()) { test in
+                        TestCell(test: test)
+                    }
                 }
+                
             }
-            
         }
-        //.background(.quaternary)
         .navigationTitle("Last 25 Tests")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -32,7 +34,7 @@ struct MainView: View {
                     showingNewTest.toggle()
                 } label: {
                     Image(systemName: "play.fill")
-                        .tint(.purple)
+                        .tint(darkPurple)
                 }
             }
         }

@@ -39,6 +39,8 @@
 		49A8F8ED27D66B7400907E87 /* AnsweredQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8DB27D5D84300907E87 /* AnsweredQuestions.swift */; };
 		49A8F8EE27D66B7500907E87 /* DifficultyEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8D727D5D65600907E87 /* DifficultyEnum.swift */; };
 		49A8F8EF27D66B7700907E87 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A8F8D927D5D73F00907E87 /* Test.swift */; };
+		49B7F26A27F239AA00E9155F /* ColorHexInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7F26927F239AA00E9155F /* ColorHexInitializer.swift */; };
+		49B7F26B27F239AA00E9155F /* ColorHexInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B7F26927F239AA00E9155F /* ColorHexInitializer.swift */; };
 		49DF703A27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */; };
 		49DF703B27D7DFF000488157 /* SharedFunctionsAndConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,7 @@
 		49A8F8DD27D5DBD800907E87 /* QuestionProviderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionProviderVM.swift; sourceTree = "<group>"; };
 		49A8F8DF27D5DBE300907E87 /* TestRecorderVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRecorderVM.swift; sourceTree = "<group>"; };
 		49A8F8E727D6691700907E87 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		49B7F26927F239AA00E9155F /* ColorHexInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHexInitializer.swift; sourceTree = "<group>"; };
 		49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunctionsAndConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +173,7 @@
 			children = (
 				49DF703927D7DFF000488157 /* SharedFunctionsAndConstants.swift */,
 				499AAC6A27EE241F00A0BB11 /* StringFormatter.swift */,
+				49B7F26927F239AA00E9155F /* ColorHexInitializer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -283,6 +287,7 @@
 				4997856A27D878D5003ACEEA /* NewTestPopUp.swift in Sources */,
 				49A8F8E827D6691700907E87 /* Response.swift in Sources */,
 				49A8F8DA27D5D73F00907E87 /* Test.swift in Sources */,
+				49B7F26A27F239AA00E9155F /* ColorHexInitializer.swift in Sources */,
 				499AAC6B27EE241F00A0BB11 /* StringFormatter.swift in Sources */,
 				49A8F8C427D5D4AB00907E87 /* ComputerScienceQuizApp.swift in Sources */,
 				49A8F8DC27D5D84300907E87 /* AnsweredQuestions.swift in Sources */,
@@ -306,6 +311,7 @@
 				4997856B27D878D5003ACEEA /* NewTestPopUp.swift in Sources */,
 				49A8F8E927D66B6A00907E87 /* QuestionProviderVM.swift in Sources */,
 				49A8F8EC27D66B7100907E87 /* Response.swift in Sources */,
+				49B7F26B27F239AA00E9155F /* ColorHexInitializer.swift in Sources */,
 				499AAC6C27EE241F00A0BB11 /* StringFormatter.swift in Sources */,
 				49A8F8C527D5D4AB00907E87 /* ComputerScienceQuizApp.swift in Sources */,
 				49A8F8ED27D66B7400907E87 /* AnsweredQuestions.swift in Sources */,

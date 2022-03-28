@@ -14,12 +14,12 @@ struct TestCell: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text("Completed on \(test.completionDate.formatted(date: .abbreviated, time: .omitted))")
+            Text(test.completionDate, formatter: formatter)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
-            Text("Score: \(test.score)")
+            Text("Score: \(test.score) / 100")
                 .font(.title2)
-                .foregroundColor(.primary)
+                .foregroundColor(darkPurple)
         }
         .onTapGesture(count: 2) {
             presentingQuestions.toggle()
