@@ -37,8 +37,7 @@ struct MainView: View {
                         .tint(darkPurple)
                 }
             }
-        }
-        .sheet(isPresented: $showingNewTest) {
+        }        .sheet(isPresented: $showingNewTest) {
             NavigationView {
                 NewTestPopUp(questionProvider: questionProvider, testRecorder: testRecorder, isPresenting: $showingNewTest)
             }

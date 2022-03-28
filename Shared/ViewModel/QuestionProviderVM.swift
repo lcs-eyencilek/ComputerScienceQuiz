@@ -53,6 +53,7 @@ final class QuestionProviderVM: ObservableObject {
         return answers
     }
     
+    // To reach private property from other files
     func resetQuestions() {
         self.questions = []
     }

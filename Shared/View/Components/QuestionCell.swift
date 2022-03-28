@@ -30,11 +30,3 @@ struct QuestionCell: View {
         .background(question.correct ? .green : .red)
     }
 }
-
-/*
-struct QuestionCell_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionCell()
-    }
-}
-*/
