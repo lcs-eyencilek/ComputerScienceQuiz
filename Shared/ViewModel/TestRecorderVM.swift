@@ -16,7 +16,6 @@ final class TestRecorderVM: ObservableObject {
     init(tests: [Test] = []) {
         // Get a URL that points to the saved JSON data containing our list of tasks
         let filename = getDocumentsDirectory().appendingPathComponent(savedTestsLabel)
-        print(filename)
         
         // Attempt to load from the JSON in the stored / persisted file
         do {

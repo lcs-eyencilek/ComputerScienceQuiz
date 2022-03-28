@@ -14,7 +14,7 @@ struct TestCell: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text("Completed on \(test.completionDate.formatted(date: .abbreviated, time: .shortened))")
+            Text("Completed on \(test.completionDate.formatted(date: .abbreviated, time: .omitted))")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
             Text("Score: \(test.score)")
