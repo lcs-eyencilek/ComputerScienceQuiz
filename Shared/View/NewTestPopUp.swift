@@ -37,7 +37,10 @@ struct NewTestPopUp: View {
                 
                 Spacer()
                 
-                if !progressionComplete {
+                if !isPresenting {
+                   Text("View is off")
+                        .opacity(0)
+                } else if !progressionComplete {
                     ProgressView("Loading Content")
                         .scaledToFill()
                         .tint(.white)
