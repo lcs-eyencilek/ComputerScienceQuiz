@@ -53,7 +53,7 @@ struct QuestionsList: View {
                 .listRowSeparatorTint(.white)
             }
         }
-        .navigationTitle("Test on \(test.completionDate.description)")
+        .navigationTitle("Score: \(test.score)/100")
         .toolbar {
             
             ToolbarItem(placement: .cancellationAction) {
