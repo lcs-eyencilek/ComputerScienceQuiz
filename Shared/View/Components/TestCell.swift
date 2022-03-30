@@ -13,13 +13,17 @@ struct TestCell: View {
     @State var presentingQuestions: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 3) {
-            Text(test.completionDate, formatter: formatter)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-            Text("Score: \(test.score) / 100")
-                .font(.title2)
-                .foregroundColor(darkPurple)
+        HStack  {
+            
+            VStack(alignment: .leading, spacing: 3) {
+                Text(test.completionDate, formatter: formatter)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                Text("Score: \(test.score) / 100")
+                    .font(.title2)
+                    .foregroundColor(darkPurple)
+            }
+        
         }
         .onTapGesture(count: 2) {
             presentingQuestions.toggle()

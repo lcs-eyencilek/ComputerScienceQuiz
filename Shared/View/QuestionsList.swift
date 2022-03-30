@@ -49,6 +49,8 @@ struct QuestionsList: View {
                         }
                     }
                 }
+                .listRowBackground(darkPurple)
+                .listRowSeparatorTint(.white)
             }
         }
         .navigationTitle("Test on \(test.completionDate.description)")

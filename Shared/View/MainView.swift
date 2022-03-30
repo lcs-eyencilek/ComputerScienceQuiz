@@ -16,7 +16,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            //Color.purple.edgesIgnoringSafeArea(.all)
+            
             VStack {
                 
                 List {
@@ -26,6 +26,7 @@ struct MainView: View {
                 }
                 
             }
+            
         }
         .navigationTitle("Last 25 Tests")
         .toolbar {

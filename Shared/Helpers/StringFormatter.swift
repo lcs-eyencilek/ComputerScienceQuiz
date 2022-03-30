@@ -11,7 +11,9 @@ import SwiftUI
 // Constant dictionary of replacements
 let replacements = [
     "&#039;" : "\u{0027}",
-    "&quot;" : "\u{0022}"
+    "&quot;" : "\u{0022}",
+    "&lt;": "<",
+    "&gt;": ">"
 ]
 
 extension String {
