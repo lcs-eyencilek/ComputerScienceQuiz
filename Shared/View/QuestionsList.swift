@@ -63,7 +63,7 @@ struct QuestionsList: View {
             }
             
             ToolbarItem(placement: .bottomBar) {
-                Button(" \(hideCorrect ? "Show" : "Hide") Correct") {
+                Button("\(hideCorrect ? "Show" : "Hide") Correct") {
                     hideCorrect.toggle()
                 }
             }
