@@ -2,7 +2,6 @@
 //  ComputerScienceQuizApp.swift
 //  Shared
 //
-//  Created by Efe Yencilek on 2022-03-07.
 //
 
 import SwiftUI

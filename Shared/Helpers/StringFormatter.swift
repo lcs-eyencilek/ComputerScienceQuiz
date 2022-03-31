@@ -2,7 +2,6 @@
 //  StringFormatter.swift
 //  ComputerScienceQuiz
 //
-//  Created by Efe Yencilek on 2022-03-25.
 //
 
 import Foundation

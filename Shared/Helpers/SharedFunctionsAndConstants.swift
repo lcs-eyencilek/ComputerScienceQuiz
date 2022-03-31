@@ -2,7 +2,6 @@
 //  SharedFunctionsAndConstants.swift
 //  ComputerScienceQuiz
 //
-//  Created by Efe Yencilek on 2022-03-08.
 //
 
 import Foundation

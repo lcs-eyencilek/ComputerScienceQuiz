@@ -2,7 +2,6 @@
 //  AnswerButton.swift
 //  ComputerScienceQuiz
 //
-//  Created by Efe Yencilek on 2022-03-10.
 //
 
 import SwiftUI

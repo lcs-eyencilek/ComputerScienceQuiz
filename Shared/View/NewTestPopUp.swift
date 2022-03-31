@@ -2,7 +2,6 @@
 //  NewTestPopUp.swift
 //  ComputerScienceQuiz
 //
-//  Created by Efe Yencilek on 2022-03-09.
 //
 
 import SwiftUI
