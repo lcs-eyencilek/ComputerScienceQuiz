@@ -15,20 +15,17 @@ let replacements = [
     "&gt;": ">"
 ]
 
-extension String {
-    func formatKeyCodes() -> String {
-        var displaying = self
-        
-        for replacement in replacements {
-            // Replace for each value in the dictionary
-            if displaying.contains(replacement.key) {
-                displaying = displaying.replacingOccurrences(of: replacement.key, with: replacement.value)
-            }
-        }
-        
-        return displaying
-    }
-}
 
-let darkPurple = Color(hex: "702963")
+func formatKeyCodes(text: String) -> String {
+    var displaying = text
+    
+    for replacement in replacements {
+        // Replace for each value in the dictionary
+        if displaying.contains(replacement.key) {
+            displaying = displaying.replacingOccurrences(of: replacement.key, with: replacement.value)
+        }
+    }
+    
+    return displaying
+}
 

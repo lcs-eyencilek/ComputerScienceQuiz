@@ -8,6 +8,7 @@ import Foundation
 import SwiftUI
 
 extension Color {
+    // Initializer Code Obtained From https://stackoverflow.com/questions/56874133/use-hex-color-in-swiftui
     init(hex: String) {
             let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
             var int: UInt64 = 0
@@ -33,3 +34,5 @@ extension Color {
             )
         }
 }
+
+let darkPurple = Color(hex: "702963")

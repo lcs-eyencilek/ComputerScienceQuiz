@@ -15,24 +15,24 @@ struct QuestionCell: View {
             
             VStack(alignment: .leading) {
                 
-                Text(question.original.question.formatKeyCodes())
+                Text(formatKeyCodes(text: question.original.question))
                     .fixedSize(horizontal: false, vertical: true)
                 if !question.correct {
                     HStack {
                         Text("Your answer: ")
-                        Text(question.userAnswer.formatKeyCodes())
+                        Text(formatKeyCodes(text: question.userAnswer))
                             .fixedSize(horizontal: false, vertical: true)
                             .foregroundColor(.red)
                     }
                     .padding(.vertical, 2)
                     HStack {
                         Text("Correct answer: ")
-                        Text(question.original.correct_answer.formatKeyCodes())
+                        Text(formatKeyCodes(text: question.original.correct_answer))
                             .fixedSize(horizontal: false, vertical: true)
                             .foregroundColor(.green)
                     }
                 } else {
-                    Text(question.original.correct_answer.formatKeyCodes())
+                    Text(formatKeyCodes(text: question.original.correct_answer))
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.green)
                         .padding(.top, 2)

@@ -60,7 +60,7 @@ struct NewTestPopUp: View {
                         let answers = questionProvider.returnAllAnswers(at: questionIndex)
                         if questionAnswer.isEmpty {
                             VStack {
-                                Text(current.question.formatKeyCodes())
+                                Text(formatKeyCodes(text: current.question))
                                     .foregroundColor(.white)
                                     .font(.title2)
                                     .padding(20)

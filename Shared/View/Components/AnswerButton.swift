@@ -21,7 +21,7 @@ struct AnswerButton: View {
             HStack {
                 Spacer()
                 
-                Text(displayText.formatKeyCodes())
+                Text(formatKeyCodes(text: displayText))
                     .foregroundColor(.white)
                     .padding()
                     .font(.headline)
